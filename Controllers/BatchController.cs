@@ -52,7 +52,7 @@ namespace StudentApp.Controllers
             {
                 db.batches.Add(batch);
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Registration Created Successfully...!";
+                TempData["AlertMessage"] = "Batch Created Successfully...!";
                 return RedirectToAction("Index");
             }
 
@@ -85,7 +85,7 @@ namespace StudentApp.Controllers
             {
                 db.Entry(batch).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Registration Updated Successfully...!";
+                TempData["AlertMessage"] = "Batch Updated Successfully...!";
                 return RedirectToAction("Index");
             }
             return View(batch);
@@ -114,7 +114,7 @@ namespace StudentApp.Controllers
             batch batch = db.batches.Find(id);
             db.batches.Remove(batch);
             db.SaveChanges();
-            TempData["AlertMessage"] = "Registration Updated Successfully...!";
+            TempData["AlertMessage"] = "Batch deleted Successfully...!";
             return RedirectToAction("Index");
         }
 

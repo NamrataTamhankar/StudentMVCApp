@@ -55,7 +55,7 @@ namespace StudentApp.Controllers
             {
                 db.registrations.Add(registration);
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Registration Updated Successfully...!";
+                TempData["AlertMessage"] = "Registration Created Successfully...!";
                 return RedirectToAction("Index");
             }
 
@@ -123,7 +123,7 @@ namespace StudentApp.Controllers
             registration registration = db.registrations.Find(id);
             db.registrations.Remove(registration);
             db.SaveChanges();
-            TempData["AlertMessage"] = "Registration Updated Successfully...!";
+            TempData["AlertMessage"] = "Registration Deleted Successfully...!";
             return RedirectToAction("Index");
         }
 

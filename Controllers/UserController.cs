@@ -52,7 +52,7 @@ namespace StudentApp.Controllers
             {
                 db.users.Add(user);
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Registration Updated Successfully...!";
+                TempData["AlertMessage"] = "User Created Successfully...!";
                 return RedirectToAction("Index");
             }
 
@@ -85,7 +85,7 @@ namespace StudentApp.Controllers
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Registration Updated Successfully...!";
+                TempData["AlertMessage"] = "User Updated Successfully...!";
                 return RedirectToAction("Index");
             }
             return View(user);
@@ -114,7 +114,7 @@ namespace StudentApp.Controllers
             user user = db.users.Find(id);
             db.users.Remove(user);
             db.SaveChanges();
-            TempData["AlertMessage"] = "Registration Updated Successfully...!";
+            TempData["AlertMessage"] = "User Deleted Successfully...!";
             return RedirectToAction("Index");
         }
 
