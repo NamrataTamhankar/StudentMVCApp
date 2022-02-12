@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="batch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Batch" Type="varchar" MaxLength="50" />
+    <Property Name="Year" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Course" Type="varchar" MaxLength="50" />
+    <Property Name="Duration" Type="int" />
+  </EntityType>
+  <EntityType Name="registration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Email_ID" Type="varchar" MaxLength="50" />
+    <Property Name="Course_Id" Type="int" />
+    <Property Name="Batch_id" Type="int" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="15" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_registration_batch">
+    <End Role="batch" Type="Self.batch" Multiplicity="0..1" />
+    <End Role="registration" Type="Self.registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="batch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="registration">
+        <PropertyRef Name="Batch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_registration_course">
+    <End Role="course" Type="Self.course" Multiplicity="0..1" />
+    <End Role="registration" Type="Self.registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="registration">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentsModelStoreContainer">
+    <EntitySet Name="batch" EntityType="Self.batch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registration" EntityType="Self.registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_registration_batch" Association="Self.FK_registration_batch">
+      <End Role="batch" EntitySet="batch" />
+      <End Role="registration" EntitySet="registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_registration_course" Association="Self.FK_registration_course">
+      <End Role="course" EntitySet="course" />
+      <End Role="registration" EntitySet="registration" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
