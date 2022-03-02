@@ -29,6 +29,7 @@
     <Property Name="Batch_id" Type="int" />
     <Property Name="MobileNo" Type="varchar" MaxLength="15" />
     <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="Image" Type="varchar" MaxLength="2000" />
   </EntityType>
   <EntityType Name="user">
     <Key>

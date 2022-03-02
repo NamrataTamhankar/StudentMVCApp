@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StudentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="batch">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,6 +34,7 @@
           <Property Name="Batch_id" Type="int" />
           <Property Name="MobileNo" Type="varchar" MaxLength="15" />
           <Property Name="Address" Type="varchar" MaxLength="250" />
+          <Property Name="Image" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -83,8 +84,7 @@
             <End Role="registration" EntitySet="registration" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -121,6 +121,7 @@
           <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="batch" Relationship="Self.FK_registration_batch" FromRole="registration" ToRole="batch" />
           <NavigationProperty Name="course" Relationship="Self.FK_registration_course" FromRole="registration" ToRole="course" />
+          <Property Name="Image" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -197,6 +198,7 @@
           <EntitySetMapping Name="registrations">
             <EntityTypeMapping TypeName="StudentsModel.registration">
               <MappingFragment StoreEntitySet="registration">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

@@ -253,6 +253,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="source\envelope-solid.svg" />
+    <Content Include="source\facebook-brands.svg" />
+    <Content Include="source\github-brands.svg" />
+    <Content Include="source\linkedin-brands.svg" />
+    <Content Include="source\location-dot-solid.svg" />
+    <Content Include="source\phone-solid.svg" />
+    <Content Include="source\youtube-brands.svg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -311,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

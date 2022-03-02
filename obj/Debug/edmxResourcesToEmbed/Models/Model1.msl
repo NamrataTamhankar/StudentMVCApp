@@ -22,6 +22,7 @@
     <EntitySetMapping Name="registrations">
       <EntityTypeMapping TypeName="StudentsModel.registration">
         <MappingFragment StoreEntitySet="registration">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />

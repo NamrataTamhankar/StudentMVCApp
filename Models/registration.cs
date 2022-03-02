@@ -11,22 +11,26 @@ namespace StudentApp.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class registration
     {
         public int id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Display(Name = "DOB")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = @"{0:dd\/MM\/yyyy HH:mm}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DOB { get; set; }
         public string Email_ID { get; set; }
         public Nullable<int> Course_Id { get; set; }
         public Nullable<int> Batch_id { get; set; }
         public string MobileNo { get; set; }
         public string Address { get; set; }
-    
+        [DisplayName("Upload Image")]
+        public string Image { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
+
         public virtual batch batch { get; set; }
         public virtual course course { get; set; }
     }

@@ -52,7 +52,7 @@ namespace StudentApp.Controllers
             {
                 db.courses.Add(course);
                 db.SaveChanges();
-                TempData["AlertMessage"] = "Course Creates Successfully...!";
+                TempData["AlertMessage"] = "Course Created Successfully...!";
                 return RedirectToAction("Index");
             }
 
